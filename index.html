@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111114">
+    <title>DareCraft поддержка — DARENACHEK studio</title>
+    <meta name="description" content="Официальный сайт поддержки DareCraft от DARENACHEK studio. Сообщить о баге, посмотреть отчёты игроков и задать вопрос.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <header class="header" id="header">
+        <a href="#top" class="logo">
+            <span class="logo-main">DARE<span>CRAFT</span></span>
+            <span class="logo-sub">ПОДДЕРЖКА · DARENACHEK</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="navigation">
+            <span class="menu-lines" aria-hidden="true"></span>
+        </button>
+
+        <nav class="navigation" id="navigation" aria-label="Навигация поддержки">
+            <a href="#report" class="nav-link active">СООБЩИТЬ О БАГЕ</a>
+            <a href="#community-bugs" class="nav-link">БАГИ ПОЛЬЗОВАТЕЛЕЙ</a>
+            <a href="#faq" class="nav-link">ЧАСТЫЕ ВОПРОСЫ</a>
+            <a href="https://darenachek-create.github.io/DareCraft/" class="nav-link nav-download">САЙТ ИГРЫ ↗</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="support-hero">
+            <div class="support-hero-inner">
+                <a href="https://darenachek-create.github.io/DareCraft/" class="back-pill">← Перейти на главный сайт DareCraft</a>
+                <div class="status" role="status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>ЦЕНТР ПОДДЕРЖКИ DARECRAFT · ПОМОГАЕМ СДЕЛАТЬ ИГРУ ЛУЧШЕ</span>
+                </div>
+                <h1>DARECRAFT <span>ПОДДЕРЖКА</span></h1>
+                <p>
+                    Нашли баг в сборке или на сайте, или хотите предложить идею для нового обновления? Заполните форму ниже — ваше обращение сразу появится в списке отчётов пользователей для <strong>DARENACHEK studio</strong>.
+                </p>
+            </div>
+        </section>
+
+        <section class="section support-section" id="report">
+            <div class="support-grid">
+                <div class="support-form-card">
+                    <div class="release-meta">
+                        <span class="release-badge">TICKET</span>
+                        <span class="release-file">НОВОЕ ОБРАЩЕНИЕ</span>
+                    </div>
+                    <h2>Оформить обращение</h2>
+                    <p class="support-desc">
+                        Заполните поля ниже и нажмите <strong>«Отправить»</strong> — обращение сразу добавится в раздел <strong>«Баги, которые написали другие пользователи»</strong>.
+                    </p>
+
+                    <form id="supportReportForm" class="bug-form">
+                        <div class="form-row-two">
+                            <div class="form-row">
+                                <label for="ticketAuthor">Ваш ник (необязательно)</label>
+                                <input type="text" id="ticketAuthor" name="ticketAuthor" placeholder="Например: Danyil">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="ticketCategory">Тип обращения</label>
+                                <select id="ticketCategory" name="ticketCategory">
+                                    <option value="Баг в игре">Баг в игре</option>
+                                    <option value="Ошибка на сайте">Ошибка на сайте</option>
+                                    <option value="Предложение / Идея">Предложение / Идея</option>
+                                    <option value="Вопрос по запуску">Вопрос по запуску</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row-two">
+                            <div class="form-row">
+                                <label for="bugVersion">Версия сборки</label>
+                                <input type="text" id="bugVersion" name="bugVersion" value="0.1" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label for="bugPlatform">Устройство</label>
+                                <select id="bugPlatform" name="bugPlatform">
+                                    <option value="ПК (Windows)">ПК (Windows)</option>
+                                    <option value="Телефон / Планшет">Телефон / Планшет</option>
+                                    <option value="Браузер">Браузер</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="bugWhatHappened">Опишите проблему или идею</label>
+                            <textarea id="bugWhatHappened" name="bugWhatHappened" rows="3" placeholder="Например: Ошибка в текстурах — они прозрачные..." required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="bugSteps">Как повторить (если это баг)</label>
+                            <textarea id="bugSteps" name="bugSteps" rows="2" placeholder="Например: Просто зайти в мир"></textarea>
+                        </div>
+
+                        <div class="card-actions">
+                            <button type="submit" class="btn btn-red">ОТПРАВИТЬ</button>
+                            <button type="button" class="btn btn-outline" id="downloadReportBtn">СКАЧАТЬ .TXT</button>
+                            <button type="button" class="btn btn-outline" id="fillSampleBtn">ПРИМЕР</button>
+                        </div>
+
+                        <div class="download-feedback" id="supportFeedback" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+
+                <aside class="support-side-card">
+                    <div class="release-meta">
+                        <span class="release-badge outline" id="ticketIdBadge">#DC-001</span>
+                        <span class="release-file">ПРЕДПРОСМОТР</span>
+                    </div>
+                    <h3>Карточка отчёта</h3>
+                    <pre class="report-preview" id="reportPreview"></pre>
+                    <p class="support-note">
+                        После нажатия <strong>«Отправить»</strong> карточка появится ниже в ленте обращений и сохранится в вашем браузере.
+                    </p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section community-section" id="community-bugs">
+            <div class="section-header-center">
+                <span class="section-label">ЛЕНТА СООБЩЕСТВА</span>
+                <h2>БАГИ, КОТОРЫЕ НАПИСАЛИ <span>ДРУГИЕ ПОЛЬЗОВАТЕЛИ</span></h2>
+                <p class="section-subtitle">Отправленные вами обращения и найденные ошибки в одном списке.</p>
+            </div>
+
+            <div class="community-toolbar">
+                <div class="filter-pills" role="group" aria-label="Фильтр обращений">
+                    <button type="button" class="pill-btn active" data-filter="all">Все (<span id="countAll">0</span>)</button>
+                    <button type="button" class="pill-btn" data-filter="Баг в игре">Баги в игре</button>
+                    <button type="button" class="pill-btn" data-filter="Ошибка на сайте">Ошибка на сайте</button>
+                    <button type="button" class="pill-btn" data-filter="Предложение / Идея">Идеи</button>
+                </div>
+            </div>
+
+            <div class="community-grid" id="communityGrid"></div>
+        </section>
+
+        <section class="section faq-section" id="faq">
+            <div class="section-header-center">
+                <span class="section-label">ПОМОЩЬ И ОТВЕТЫ</span>
+                <h2>ЧАСТЫЕ <span>ВОПРОСЫ</span></h2>
+            </div>
+
+            <div class="faq-list">
+                <article class="faq-item">
+                    <h3>Как правильно запустить скачанную игру DareCraft?</h3>
+                    <p>После скачивания архива с игрой обязательно распакуйте его в отдельную папку и запускайте игру из распакованной папки, а не прямо внутри архива.</p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>Что делать, если я нашёл баг в версии 0.1?</h3>
+                    <p>Опишите, что именно произошло и на каком устройстве (ПК или телефон), нажмите <strong>«Отправить»</strong> — отчёт появится в списке багов пользователей и поможет исправить ошибку в следующем обновлении.</p>
+                </article>
+
+                <article class="faq-item">
+                    <h3>Можно ли предложить свою идею для DareCraft?</h3>
+                    <p>Да! Выберите в форме выше тип обращения <strong>«Предложение / Идея»</strong>, опишите новую механику, блок или структуру и отправьте её в общую ленту.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#top" class="footer-logo">DARENACHEK STUDIO</a>
+        <p>© <span id="year"></span> DARENACHEK studio. DareCraft поддержка.</p>
+        <a href="https://darenachek-create.github.io/DareCraft/" class="footer-top">САЙТ DARECRAFT ↗</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
